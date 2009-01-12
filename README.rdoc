@@ -1,0 +1,11 @@
+= Pharm
+
+The little engine that could.
+
+= Credits
+
+Pharm is maintained by {Barry Hess}[mailto:barry@iridesco.com] and {Shawn Liu}[mailto:shawn@iridesco.com], and is funded by Iridesco[http://iridesco.com].
+
+= License
+
+Copyright © 2009 Barry Hess, Shawn Liu, Iridesco. It is free software, and may be redistributed under the terms specified in the MIT-LICENSE file.
