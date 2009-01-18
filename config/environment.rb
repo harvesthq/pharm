@@ -27,6 +27,16 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
+  config.gem "haml"
+  config.gem "RedCloth"
+  # config.gem "memcache-client", :lib => "memcache"
+  config.gem "mocha"
+  config.gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => "http://gems.github.com"
+
+  if RAILS_ENV == 'test'
+    config.gem 'iridesco-time-warp', :lib => 'time_warp', :source => "http://gems.github.com"
+    config.gem 'thoughtbot-shoulda', :lib => 'shoulda/rails', :source => "http://gems.github.com"
+  end
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
