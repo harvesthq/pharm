@@ -2,6 +2,15 @@
 
 The little engine that could.
 
+= Installation
+
+This is a fully-formed Rails application. Thus you must know how to install Rails applications on your host.  Update the following files appropriately:
+
+environment.rb:
+
+  ExceptionNotifier.sender_address       = %("Pharm bug" <info@iridesco.com>)
+  ExceptionNotifier.exception_recipients = %w(shawn@iridesco.com barry@iridesco.com)
+
 = Credits
 
 Pharm is maintained by {Barry Hess}[mailto:barry@iridesco.com] and {Shawn Liu}[mailto:shawn@iridesco.com], and is funded by Iridesco[http://iridesco.com].
