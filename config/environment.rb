@@ -35,7 +35,6 @@ Rails::Initializer.run do |config|
 
   if RAILS_ENV == 'test'
     config.gem 'iridesco-time-warp', :lib => 'time_warp', :source => "http://gems.github.com"
-    config.gem 'thoughtbot-shoulda', :lib => 'shoulda/rails', :source => "http://gems.github.com"
   end
 
   # Only load the plugins named here, in the order given. By default, all plugins 
