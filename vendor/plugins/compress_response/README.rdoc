@@ -1,0 +1,17 @@
+= compress_response
+
+This is a plugin based on Agile Web Development with Rails' response compression technique. By default, all responses will be compressed when they can be
+
+== Usage
+
+While compression works by default, at times you may wish to avoid compression. For instance, if the user is downloading a binary from your site. In that case you may use a before filter to avoid compression.
+
+  request.dont_compress = true
+
+= Credits
+
+Template is maintained and funded by Iridesco[http://iridesco.com].
+
+= License
+
+Copyright © 2009 Iridesco[http://iridesco.com]. It is free software, and may be redistributed under the terms specified in the MIT-LICENSE file.
