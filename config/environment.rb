@@ -34,6 +34,7 @@ Rails::Initializer.run do |config|
   config.gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => "http://gems.github.com"
 
   if RAILS_ENV == 'test'
+    config.gem 'assert2'
     config.gem 'iridesco-time-warp', :lib => 'time_warp', :source => "http://gems.github.com"
   end
 
