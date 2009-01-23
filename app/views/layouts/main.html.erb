@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title><%= yield(:title) || "Pharm" -%></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <%= stylesheet_link_tag 'base' -%>
+  <%= %w{prototype prototype_csfr_fix effects dragdrop todos tickets datepicker}.map { |name| javascript_include_tag name } -%>
+  <%= javascript_include_merged :base -%>
+  <%= javascript_tag "window._token = '#{form_authenticity_token}'" if RAILS_ENV != 'test' %>
+  <%= yield :head %>
+  <%= yield :page_scripts %>
+</head>
+
+<body>
+
+  <div id="container">
+    <%= yield %>
+  </div>
+
+</body>
+</html>
