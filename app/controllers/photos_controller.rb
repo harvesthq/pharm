@@ -22,6 +22,11 @@ class PhotosController < ApplicationController
   
   def edit; end
   
+  def update
+    @photo.update_attributes(params[:photo])
+    redirect_to photo_path(@photo)
+  end
+  
   def destroy
     @photo.destroy
     render :update do |page|

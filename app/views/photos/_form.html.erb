@@ -13,6 +13,6 @@
     <%= f.label :body, "Body (optional)" %>
     <%= f.text_area :body %>
     
-    <%= f.submit "Create Post" %>
+    <%= f.submit "#{@photo.new_record? ? 'Create' : 'Update'} Post" %>
   <%- end -%>
 </div>
