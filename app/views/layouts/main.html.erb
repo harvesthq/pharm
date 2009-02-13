@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <%= stylesheet_link_tag 'base' -%>
   <%= stylesheet_link_tag 'honey' -%>
-  <%= %w{prototype prototype_csfr_fix effects dragdrop todos tickets datepicker}.map { |name| javascript_include_tag name } -%>
+  <%= %w{prototype prototype_csfr_fix effects dragdrop}.map { |name| javascript_include_tag name } -%>
   <%= javascript_tag "window._token = '#{form_authenticity_token}'" if RAILS_ENV != 'test' %>
   <%= yield :head %>
   <%= yield :page_scripts %>
@@ -17,7 +17,7 @@
   <div id="top_nav">
     <ul class="actions">
       <li><a href="post_photo">Settings</a></li>
-      <li><%= link_to("Post Photo", new_photo_path, :class=>"green") -%></li>
+      <li><%= link_to("Post Photo", new_admin_photo_path, :class=>"green") -%></li>
     </ul>
     <h1><a href="/">Pharm</a></h1>
   </div>

@@ -2,11 +2,6 @@ class AdminPhotosController < ApplicationController
   before_filter :authenticate
   before_filter :load_photo, :only => [:show, :edit, :update, :destroy]
 
-  def home
-    @photo = Photo.ordered.limited(1).first
-    render :action => :show
-  end
-
   def index
     @photos = Photo.ordered
   end
@@ -17,14 +12,15 @@ class AdminPhotosController < ApplicationController
     
   def create
     photo = Photo.create(params[:photo])
-    redirect_to photo_path(photo)
+    
+    redirect_to admin_photos_path
   end
   
   def edit; end
   
   def update
     @photo.update_attributes(params[:photo])
-    redirect_to photo_path(@photo)
+    redirect_to admin_photos_path
   end
   
   def destroy

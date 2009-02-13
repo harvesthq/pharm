@@ -12,7 +12,7 @@
     </div>
   </td>
   <td class="actions">
-    <%= link_to("Edit", edit_photo_path(photo)) %>
-    <%= link_to_remote("Delete", :url => photo_path(photo), :method => :delete, :confirm => "Are you sure you wish to delete this photo?") %>
+    <%= link_to("Edit", edit_admin_photo_path(photo)) %>
+    <%= link_to_remote("Delete", :url => admin_photo_path(photo), :method => :delete, :confirm => "Are you sure you wish to delete this photo?") %>
   </td>
 </tr>

@@ -1,1 +1,4 @@
-<%= render :partial => "form" %>
+<% form_for(:photo, @photo = Photo.new, :url => admin_photos_path, :html => {:method => :post, :multipart => true}) do |form| -%>
+  <%= render :partial => form %>
+  <div class="buttons"><%= form.submit "Create Post" %></div>
+<% end -%>
