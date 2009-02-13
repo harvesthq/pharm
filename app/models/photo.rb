@@ -17,15 +17,15 @@ class Photo < ActiveRecord::Base
 
   attr_accessible :title, :body, :asset
   
-  def previous
+  def previous(circular=false)
+    return @previous if @previous
     @previous ||= Photo.previous(self.created_at).first
+    return @previous if @previous || !circular
+    Photo.ordered.limited(1)
   end
   
-  def following(circular=false)
-    return @following if @following
+  def following
     @following ||= Photo.following(self.created_at).first
-    return @following if @following || !circular
-    Photo.find(:first)
   end
 
 end

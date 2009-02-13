@@ -1,8 +1,8 @@
 default_run_options[:pty] = true  # Force password prompt from git
 
 set :user, "DH_USERNAME"
-set :domain, "DH_FTP_SERVER"
-set :application, "DH_SITE_URL"
+set :domain, "DH_SSH_DOMAIN"      # What you SSH to at Dreamhost 
+set :application, "DH_SITE_URL"   # The name of the site you wish to run Pharm on
 
 set :repository, "git@github.com:iridesco/pharm.git"
 set :deploy_to, "/home/#{user}/#{application}"

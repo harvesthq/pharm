@@ -19,7 +19,7 @@
       <li><%= link_to("Settings", settings_path) -%></li>
       <li><%= link_to("Post Photo", new_admin_photo_path, :class=>"green") -%></li>
     </ul>
-    <h1><a href="/">Pharm</a></h1>
+    <h1><%= link_to("Pharm", admin_path) -%></h1>
   </div>
   <%= yield %>
 </div>

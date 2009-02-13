@@ -24,20 +24,24 @@ environment.rb:
   - Change DH_USERNAME to your Dreamhost username
   - Change DH_FTP_SERVER to your Dreamhost FTP address (mine's bazooka.dreamhost.com)
   - Change DH_SITE_URL to your domain name (mine's snapped.bjhess.com)
-* SSH to DH, /home/username/domain_name
-  - rm -rf current
+* SSH to DH, cd /home/username/domain_name
+  - assure your current directory is empty
+  - If so: rm -rf current
   - mkdir -p shared/uploads
   - mkdir -p shared/config
   - Using the app's config/admin.yml.example, setup DH shared/config/admin.yml
   - Using the app's config/database.yml.example, setup DH shared/config/database.yml
+    (don't forget to specify host on Dreamhost)
+* TODO: Something about setting up public key from DH on GitHub account
 * Back on your local machine
-  - rake deploy:setup
-  - rake deploy:migrations
-    o If this doesn't work for you, change:
+  - cap deploy:setup
+  - cap deploy:migrations
+    o If this doesn't work for you (new changes aren't getting deployed), change:
         set :deploy_via, :remote_cache
       In deploy.rb to:
         set :deploy_via, :copy
       It'll be slow, but at least it should work.
+* Visit http://yourdomain.tld/admin to add a picture. Then http://yourdomain.tld will work!
 
 TODO: Instructions for remote cache deploy working
 TODO: Can we make a simple drag and drop FTP deploy?
