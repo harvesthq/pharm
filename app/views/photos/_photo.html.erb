@@ -1,6 +1,6 @@
 <tr id="<%= dom_id(photo) -%>">
   <td class="thumbnail">
-    <%= image_tag photo.asset.url(:thumb) %>
+    <%= link_to(image_tag(photo.asset.url(:thumb)), photo_path(photo)) %>
   </td>
   <td class="body_info">
     <div class="date_title">
