@@ -40,6 +40,7 @@ environment.rb:
       In deploy.rb to:
         set :deploy_via, :copy
       It'll be slow, but at least it should work.
+* Visit http://yourdomain.tld/admin to add a picture. Then http://yourdomain.tld will work!
 
 TODO: Instructions for remote cache deploy working
 TODO: Can we make a simple drag and drop FTP deploy?
