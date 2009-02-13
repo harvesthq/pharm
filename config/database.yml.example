@@ -21,3 +21,4 @@ production:
   database: pharm_production
   username: root
   password: 
+  host: mysql.domain.com
