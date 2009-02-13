@@ -11,14 +11,14 @@ class AdminPhotosController < AdminController
   def create
     photo = Photo.create(params[:photo])
     
-    redirect_to admin_photos_path
+    redirect_to admin_path
   end
   
   def edit; end
   
   def update
     @photo.update_attributes(params[:photo])
-    redirect_to admin_photos_path
+    redirect_to admin_path
   end
   
   def destroy

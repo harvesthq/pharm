@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
                 :name_prefix => 'admin_',
                 :controller  => 'admin_photos'
   
-  map.connect 'admin', :controller => 'admin_photos'
+  map.admin 'admin', :controller => 'admin_photos'
   map.settings 'admin/settings', :controller => 'admin_users', :action => 'edit'
 
   map.resource :user,
