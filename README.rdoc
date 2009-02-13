@@ -30,6 +30,7 @@ environment.rb:
   - mkdir -p shared/config
   - Using the app's config/admin.yml.example, setup DH shared/config/admin.yml
   - Using the app's config/database.yml.example, setup DH shared/config/database.yml
+    (don't forget to specify host on Dreamhost)
 * Back on your local machine
   - rake deploy:setup
   - rake deploy:migrations
