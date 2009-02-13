@@ -1,4 +1,4 @@
-<tr>
+<tr id="<%= dom_id(photo) -%>">
   <td class="thumbnail">
     <%= image_tag photo.asset.url(:thumb) %>
   </td>
@@ -13,6 +13,6 @@
   </td>
   <td class="actions">
     <%= link_to("Edit", edit_photo_path(photo)) %>
-    <a href="/">Delete</a>
+    <%= link_to_remote("Delete", :url => photo_path(photo), :method => :delete, :confirm => "Are you sure you wish to delete this photo?") %>
   </td>
 </tr>

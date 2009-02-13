@@ -16,6 +16,13 @@ class PhotosController < ApplicationController
   
   def edit; end
   
+  def destroy
+    @photo.destroy
+    render :update do |page|
+      page.remove dom_id(@photo)
+    end
+  end
+  
 private
 
   def load_photo
