@@ -3,6 +3,7 @@ tmtags
 tmp/*
 .DS_Store
 .DS_store
+config/deploy.rb
 config/database.yml
 config/admin.yml
 db/schema.rb

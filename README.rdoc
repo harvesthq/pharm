@@ -11,6 +11,19 @@ environment.rb:
   ExceptionNotifier.sender_address       = %("Pharm bug" <info@iridesco.com>)
   ExceptionNotifier.exception_recipients = %w(shawn@iridesco.com barry@iridesco.com)
 
+= Dreamhost Installation
+
+* start a domain (or fully hosted subdomain) current/public
+* create MySQL DB
+  - pharm_production
+* setup deploy.rb
+* cold deploy
+* shared area yml file setup (cap task at least for admin?) (remember host name in database.yml)
+* shared area uploads directory
+* full deploy with migrations
+
+(Can we make a simple drag and drop FTP deploy?)
+
 = Credits
 
 Pharm is maintained by {Barry Hess}[mailto:barry@iridesco.com] and {Shawn Liu}[mailto:shawn@iridesco.com], and is funded by Iridesco[http://iridesco.com].
