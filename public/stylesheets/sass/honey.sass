@@ -6,7 +6,7 @@ body
   :margin 40px
 
 #container
-  :width 670px
+  :width 660px
   :margin 40px auto
   :background-color #f3f3f3
   :border 1px solid #fff
@@ -34,21 +34,11 @@ body
       :float right
       :list-style none
       a
-        :background-color #fff
-        :border 1px solid #ccc
-        :-webkit-border-radius 3px
-        :-moz-border-radius 5px
-        :border-radius 5px
         :padding 7px 12px
-        :text-decoration none
-        :line-height 1em
         :font
           :size 11px
           :weight bold
-        :color #999
         &.green
-          :background-color green
-          :color white
           :margin-right 10px
         
 label
@@ -66,7 +56,7 @@ label
     :-moz-border-radius 5px
     :border-radius 5px
     :padding = !div_padding
-    :margin = 0 0 !div_spacing 0
+    :margin = !div_spacing 0
     input#photo_asset
       :padding 4px
       :width 200px
@@ -87,30 +77,82 @@ label
       :padding 3px
       :font
         :size 12px
-        :weight bold
+        :weight normal
+      :height 200px
   .buttons
     :padding = 0 !div_padding
+  .photo_full
+    :padding = !div_padding
+    :margin = !div_spacing 0
     
 .buttons
   a, input
     :background-color #fff
     :border 1px solid #ccc
-    :-webkit-border-radius 3px
+    :-webkit-border-radius 5px
     :-moz-border-radius 5px
     :border-radius 5px
-    :padding 8px 16px
+    :padding 8px 16px 7px 16px
     :text-decoration none
     :line-height 1em
     :font
       :size 14px
       :weight bold
     :color #999
+    &:hover
+      :color #333
+      :border-color #aaa
     &.green
-      :background-color green
-      :color white
+      :background-color #208f00
+      :color #ebf7ea
+      :border-color #1a7500
       :margin-right 10px
+      &:hover
+        :color #fff
+        :background-color #1a7600
+        :border-color #1a7500
   input
-    :background-color green
-    :color white
+    :background-color #208f00
+    :color #ebf7ea
+    :border-color #1a7500
     :margin-right 10px
+    &:hover
+      :color #fff
+      :background-color #1a7600
+      :border-color #1a7500
+    :cursor pointer
     
+#listing
+  table
+    :width 100%
+    tr
+      td
+        :padding 10px 0
+        :border-bottom 1px solid #ddd
+        :vertical-align top
+        &.thumbnail
+          :width 90px
+          .thumbarea
+            :width 90px
+            :height 80px
+            :overflow hidden
+            a, img
+              :border 0
+        &.actions
+          :width 100px
+          :padding-right 0
+          :text-align right
+          a
+            :-webkit-border-radius 3px
+            :-moz-border-radius 3px
+            :border-radius 3px
+            :padding 3px 8px 2px 8px
+            :font
+              :size 11px
+              :weight normal
+        &.body_info
+          :padding 14px
+          .date_title
+            :font
+              :size 14px
+              :weight bold
