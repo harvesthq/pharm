@@ -4,14 +4,14 @@
   <title><%= yield(:title) || "Pharm" -%></title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <%= stylesheet_link_tag 'base' -%>
-  <%= stylesheet_link_tag 'honey' -%>
+  <%= stylesheet_link_tag 'tea' -%>
   <%= %w{prototype prototype_csfr_fix effects dragdrop}.map { |name| javascript_include_tag name } -%>
   <%= javascript_tag "window._token = '#{form_authenticity_token}'" if RAILS_ENV != 'test' %>
   <%= yield :head %>
   <%= yield :page_scripts %>
 </head>
 
-<body>
+<body class="">
 
 <div id="container">
   <%= yield %>

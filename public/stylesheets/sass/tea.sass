@@ -1,0 +1,74 @@
+!div_padding = 8px
+
+body
+  :margin 40px
+  :color #777
+  :background-color #f3f3f3
+  a
+    :color #555
+  .img
+    :border 1px solid #ccc
+  .nav
+    :color #999
+    a
+      :color #777
+  h1
+    :color #333
+  h2
+    .date
+      :color #999
+  #footer
+    :color #999
+  &.black
+    :background-color #222
+    :color #999
+    a
+      :color #aaa
+    .img
+      :border 1px solid #000
+    h1
+      :color #999
+    .nav
+      :color #666
+    h2
+      .date
+        :color #666
+    #footer
+      :color #666
+      
+#container
+  :width 800px
+  :margin auto
+  #topnav
+    :padding = !div_padding
+    h1
+      :margin 0
+      :font
+        :size 18px
+        :weight bold
+    .nav
+      :float right
+  .img
+    :margin = !div_padding 0
+  .words
+    :padding = !div_padding
+    :width 65%
+    :padding = !div_padding
+    :font-size 11px
+    h2
+      :font-size 1.1em
+      .date
+        :font-weight normal
+  .nav
+    :float right
+    :width 30%
+    :padding = !div_padding
+    :text-align right
+    :font
+      :size 11px
+      :weight bold
+    a
+      :text-decoration none
+  #footer
+    :padding = !div_padding
+    :font-size 10px
