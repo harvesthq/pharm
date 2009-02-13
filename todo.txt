@@ -1,4 +1,3 @@
-o Paperclip in?
 o Resource structure
   - /users
   - /users/42-Basil-Fawlty
