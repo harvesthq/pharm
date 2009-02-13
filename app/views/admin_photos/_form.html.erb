@@ -1,8 +1,10 @@
 <div id="upload">
+  <% unless @photo.new_record? %>
+    <div class="photo_full"><%= image_tag @photo.asset.url unless @photo.new_record? %></div>
+  <% end %>
   <div class="upload_file">
-    <label>Upload a file</label>
+    <label><%= "#{@photo.new_record? ? 'Upload' : 'Replace'} photo" %></label>
     <div class="helper">Support JPEG, max size 10mb</div>
-    <%= image_tag @photo.asset.url(:thumb) unless @photo.new_record? %>
     <%= form.file_field :asset, :accept => "image/gif,image/jpeg,image/jpg,image/png" %>
   </div>
   <div class="post_form">

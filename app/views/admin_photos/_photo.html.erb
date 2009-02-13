@@ -1,6 +1,6 @@
 <tr id="<%= dom_id(photo) -%>">
   <td class="thumbnail">
-    <%= link_to(image_tag(photo.asset.url(:thumb)), photo_path(photo)) %>
+    <div class="thumbarea"><%= link_to(image_tag(photo.asset.url(:thumb)), photo_path(photo)) %></div>
   </td>
   <td class="body_info">
     <div class="date_title">
@@ -11,7 +11,7 @@
       <%= truncate(photo.body, :length => 100) %>
     </div>
   </td>
-  <td class="actions">
+  <td class="buttons actions">
     <%= link_to("Edit", edit_admin_photo_path(photo)) %>
     <%= link_to_remote("Delete", :url => admin_photo_path(photo), :method => :delete, :confirm => "Are you sure you wish to delete this photo?") %>
   </td>
