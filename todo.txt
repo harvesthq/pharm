@@ -1,0 +1,10 @@
+o Paperclip in?
+o Resource structure
+  - /users
+  - /users/42-Basil-Fawlty
+  - /photos/42-Fawlty-Towers-At-Night (minimize length?)
+  - /photos/new  # If logged in
+  - /photos/edit # If logged in
+  - /photos      # If logged in, admin list
+  
+o Look through additions - what should go to Template?
