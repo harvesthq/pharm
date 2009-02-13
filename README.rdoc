@@ -25,7 +25,8 @@ environment.rb:
   - Change DH_FTP_SERVER to your Dreamhost FTP address (mine's bazooka.dreamhost.com)
   - Change DH_SITE_URL to your domain name (mine's snapped.bjhess.com)
 * SSH to DH, cd /home/username/domain_name
-  - rm -rf current
+  - assure your current directory is empty
+  - If so: rm -rf current
   - mkdir -p shared/uploads
   - mkdir -p shared/config
   - Using the app's config/admin.yml.example, setup DH shared/config/admin.yml
