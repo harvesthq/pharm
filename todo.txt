@@ -1,3 +1,4 @@
+o xss_terminate? Cross Site Sniper?
 o Resource structure
   - /users
   - /users/42-Basil-Fawlty

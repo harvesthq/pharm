@@ -1,0 +1,17 @@
+<div id="upload">
+  <%- form_for (@photo || Photo.new), :html => { :multipart => true } do |f| -%>
+    <div class="upload_file">
+      <label>Upload a file</label>
+      <p class="helper">Support JPEG, max size 10mb</p>
+      <%= f.file_field :asset, :accept => "image/gif,image/jpeg,image/jpg,image/png" %>
+    </div>
+  
+    <%= f.label :title, "Title (optional)" %>
+    <%= f.text_field :title %>
+
+    <%= f.label :body, "Body (optional)" %>
+    <%= f.text_area :body %>
+    
+    <%= f.submit "Create Post" %>
+  <%- end -%>
+</div>

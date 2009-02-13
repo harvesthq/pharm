@@ -1,0 +1,9 @@
+<div id="photo">
+  <h1><%= @photo.title %></h1>
+  <div>
+    <%= image_tag @photo.asset.url %>
+  </div>
+  <div>
+    <%= simple_format(@photo.body) %>
+  </div>
+</div>
