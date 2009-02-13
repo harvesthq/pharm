@@ -4,6 +4,7 @@ tmp/*
 .DS_Store
 .DS_store
 config/database.yml
+config/admin.yml
 db/schema.rb
 log/*.log
 public/stylesheets/*.css

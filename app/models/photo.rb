@@ -12,6 +12,6 @@ class Photo < ActiveRecord::Base
   validates_attachment_size :asset, :less_than => 10.megabytes
   validates_attachment_content_type :asset, :content_type => ['image/jpeg', 'image/pjpeg', 'image/gif', 'image/png', 'image/x-png', 'image/jpg']
 
-  # attr_accessible :title, :body, :asset
+  attr_accessible :title, :body, :asset
 
 end

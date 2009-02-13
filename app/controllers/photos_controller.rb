@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  before_filter :authenticate, :only => [:index, :new, :create, :edit, :update, :destroy]
   before_filter :load_photo, :only => [:show, :edit, :update, :destroy]
 
   def index

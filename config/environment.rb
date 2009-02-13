@@ -86,3 +86,5 @@ end
 
 ExceptionNotifier.sender_address       = %("Pharm bug" <info@iridesco.com>)
 ExceptionNotifier.exception_recipients = %w(shawn@iridesco.com barry@iridesco.com)
+
+ENV["RAILS_ENV"] ||= "test"
