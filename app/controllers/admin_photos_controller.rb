@@ -30,4 +30,8 @@ class AdminPhotosController < ApplicationController
     end
   end
   
+  def settings
+    
+  end
+  
 end
