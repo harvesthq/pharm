@@ -24,7 +24,7 @@ environment.rb:
   - Change DH_USERNAME to your Dreamhost username
   - Change DH_FTP_SERVER to your Dreamhost FTP address (mine's bazooka.dreamhost.com)
   - Change DH_SITE_URL to your domain name (mine's snapped.bjhess.com)
-* SSH to DH, /home/username/domain_name
+* SSH to DH, cd /home/username/domain_name
   - rm -rf current
   - mkdir -p shared/uploads
   - mkdir -p shared/config
