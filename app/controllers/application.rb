@@ -19,10 +19,14 @@ class ApplicationController < ActionController::Base
 
 protected
 
-def authenticate
-  authenticate_or_request_with_http_basic do |username, password|
-    username == Pharm::Config.admin_hash['login'] && password == Pharm::Config.admin_hash['password']
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == Pharm::Config.admin_hash['login'] && password == Pharm::Config.admin_hash['password']
+    end
   end
-end
+
+  def load_photo
+    @photo = Photo.find(params[:id])
+  end
 
 end

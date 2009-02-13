@@ -1,15 +1,13 @@
 class AdminPhotosController < ApplicationController
   before_filter :authenticate
-  before_filter :load_photo, :only => [:show, :edit, :update, :destroy]
+  before_filter :load_photo, :only => [:edit, :update, :destroy]
 
   layout 'admin'
   
   def index
     @photos = Photo.ordered
   end
-  
-  def show; end
-  
+    
   def new; end
     
   def create
@@ -32,9 +30,4 @@ class AdminPhotosController < ApplicationController
     end
   end
   
-private
-
-  def load_photo
-    @photo = Photo.find(params[:id])
-  end
 end
