@@ -2,17 +2,17 @@
   <%- form_for(@photo ||= Photo.new, :html => { :multipart => true }) do |f| -%>
     <div class="upload_file">
       <label>Upload a file</label>
-      <p class="helper">Support JPEG, max size 10mb</p>
+      <div class="helper">Support JPEG, max size 10mb</div>
       <%= image_tag @photo.asset.url(:thumb) unless @photo.new_record? %>
       <%= f.file_field :asset, :accept => "image/gif,image/jpeg,image/jpg,image/png" %>
     </div>
-  
-    <%= f.label :title, "Title (optional)" %>
-    <%= f.text_field :title %>
+    <div class="post_form">
+      <%= f.label :title, "Title (optional)" %>
+      <%= f.text_field :title %>
 
-    <%= f.label :body, "Body (optional)" %>
-    <%= f.text_area :body %>
-    
-    <%= f.submit "#{@photo.new_record? ? 'Create' : 'Update'} Post" %>
+      <%= f.label :body, "Body (optional)" %>
+      <%= f.text_area :body %>
+    </div>
+    <div class="buttons"><%= f.submit "#{@photo.new_record? ? 'Create' : 'Update'} Post" %></div>
   <%- end -%>
 </div>
