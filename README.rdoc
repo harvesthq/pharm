@@ -32,6 +32,7 @@ environment.rb:
   - Using the app's config/admin.yml.example, setup DH shared/config/admin.yml
   - Using the app's config/database.yml.example, setup DH shared/config/database.yml
     (don't forget to specify host on Dreamhost)
+* TODO: Something about setting up public key from DH on GitHub account
 * Back on your local machine
   - cap deploy:setup
   - cap deploy:migrations
