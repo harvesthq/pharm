@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :photos, :collection => {:home => :get}
 
+  map.resources :photos, :collection => {:home => :get}, :path_prefix => '/admin', :controller => 'admin_photos'
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
