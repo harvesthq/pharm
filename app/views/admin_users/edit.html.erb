@@ -15,16 +15,16 @@
         <td class="field"><%= f.text_field :photo_width, :class => 'short' -%> pixels <span class="helper">(we recommend 800px)</td>
       </tr>
       <tr>
-        <td class="label"><%= f.label :about, "About / Info" -%></td>
+        <td class="label top"><%= f.label :about, "About / Info" -%></td>
         <td class="field"><%= f.text_area :about -%></td>
       </tr>
       <tr>
-        <td class="label"><%= f.label :footnotes -%></td>
+        <td class="label top"><%= f.label :footnotes -%></td>
         <td class="field"><%= f.text_area :footnotes -%></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td><%= f.submit "Save Settings" -%></td>
+        <td class="buttons"><%= f.submit "Save Settings" -%></td>
       </tr>
     </table>
   </div>
