@@ -35,7 +35,7 @@ environment.rb:
 * Back on your local machine
   - cap deploy:setup
   - cap deploy:migrations
-    o If this doesn't work for you, change:
+    o If this doesn't work for you (new changes aren't getting deployed), change:
         set :deploy_via, :remote_cache
       In deploy.rb to:
         set :deploy_via, :copy
