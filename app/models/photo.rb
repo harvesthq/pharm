@@ -6,6 +6,7 @@ class Photo < ActiveRecord::Base
     :convert_options => { :thumb => "-strip" },
     :styles          => { :thumb => "150>"}
 
+  named_scope :limited, lambda { |num| {:limit => num} }
   named_scope :ordered, lambda { |*order| { :order => order.flatten.first || 'created_at DESC' } }
 
   validates_attachment_presence :asset
