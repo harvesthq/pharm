@@ -1,9 +1,24 @@
-<div id="photo">
-  <h1><%= @photo.title %></h1>
-  <div>
+  <div id="topnav">
+    <div class="nav">
+      <a herf="/about">About</a>
+    </div>
+    <h1>Blog Title</h1>
+  </div>
+  <div class="img">
     <%= image_tag @photo.asset.url %>
   </div>
-  <div>
+  <div class="nav">
+    <a href="Previous">Previous</a> |
+    <a href="Next">Next</a>
+  </div>
+  <div class="words">
+    <h2>
+      <%= @photo.title %>
+      <span class="date"><%= @photo.created_at.to_s(:clean) -%></span>
+    </h2>
     <%= simple_format(@photo.body) %>
   </div>
-</div>
+
+  <div id="footer">
+    Copyright 2009 Shawn Liu | Powered by Pharm
+  </div>
