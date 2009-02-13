@@ -28,7 +28,7 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem "haml"
-  config.gem "RedCloth"
+  # config.gem "RedCloth"
   # config.gem "memcache-client", :lib => "memcache"
   config.gem "mocha"
   config.gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => "http://gems.github.com"
