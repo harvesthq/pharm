@@ -11,6 +11,37 @@ environment.rb:
   ExceptionNotifier.sender_address       = %("Pharm bug" <info@iridesco.com>)
   ExceptionNotifier.exception_recipients = %w(shawn@iridesco.com barry@iridesco.com)
 
+= Dreamhost Installation
+
+* Get your domain, or fully-hosted subdomain ready at DH:
+  - Click Ruby on Rails Passenger
+  - Make sure your web directory reads for example:
+    /home/username/snapped.bjhess.com/current/public/
+* Create MySQL DB
+  - pharm_production
+  - note user/pass for the DB
+* Copy deploy.rb.example to deploy.rb
+  - Change DH_USERNAME to your Dreamhost username
+  - Change DH_FTP_SERVER to your Dreamhost FTP address (mine's bazooka.dreamhost.com)
+  - Change DH_SITE_URL to your domain name (mine's snapped.bjhess.com)
+* SSH to DH, /home/username/domain_name
+  - rm -rf current
+  - mkdir -p shared/uploads
+  - mkdir -p shared/config
+  - Using the app's config/admin.yml.example, setup DH shared/config/admin.yml
+  - Using the app's config/database.yml.example, setup DH shared/config/database.yml
+* Back on your local machine
+  - rake deploy:setup
+  - rake deploy:migrations
+    o If this doesn't work for you, change:
+        set :deploy_via, :remote_cache
+      In deploy.rb to:
+        set :deploy_via, :copy
+      It'll be slow, but at least it should work.
+
+TODO: Instructions for remote cache deploy working
+TODO: Can we make a simple drag and drop FTP deploy?
+
 = Credits
 
 Pharm is maintained by {Barry Hess}[mailto:barry@iridesco.com] and {Shawn Liu}[mailto:shawn@iridesco.com], and is funded by Iridesco[http://iridesco.com].

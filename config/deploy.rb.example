@@ -1,0 +1,42 @@
+default_run_options[:pty] = true  # Force password prompt from git
+
+set :user, "DH_USERNAME"
+set :domain, "DH_FTP_SERVER"
+set :application, "DH_SITE_URL"
+
+set :repository, "git@github.com:iridesco/pharm.git"
+set :deploy_to, "/home/#{user}/#{application}"
+set :deploy_via, :remote_cache
+set :scm, 'git'
+set :branch, 'origin/master'
+set :git_shallow_clone, 1
+set :scm_verbose, true
+set :use_sudo, false
+set :keep_releases, '10'
+
+server domain, :app, :web
+role :db, domain, :primary => true
+
+# =============================================================================
+# Custom tasks
+# =============================================================================
+
+namespace :deploy do
+    desc "Tasks to complete after code update"
+  task :after_update_code do
+    configs_for = %w{database admin}
+    commands_todo = configs_for.map do |cfg|
+      "ln -nfs #{deploy_to}/#{shared_dir}/config/#{cfg}.yml #{current_release}/config/#{cfg}.yml"
+    end
+    commands_todo << "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
+    run commands_todo.join(" && ")
+  end
+  
+  desc "Restart Application"
+  task :restart do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+end
+
+after "deploy", "deploy:cleanup"
+after "deploy:migrations", "deploy:cleanup"
