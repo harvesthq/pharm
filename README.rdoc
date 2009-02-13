@@ -33,8 +33,8 @@ environment.rb:
   - Using the app's config/database.yml.example, setup DH shared/config/database.yml
     (don't forget to specify host on Dreamhost)
 * Back on your local machine
-  - rake deploy:setup
-  - rake deploy:migrations
+  - cap deploy:setup
+  - cap deploy:migrations
     o If this doesn't work for you, change:
         set :deploy_via, :remote_cache
       In deploy.rb to:
