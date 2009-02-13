@@ -28,5 +28,9 @@ protected
   def load_photo
     @photo = Photo.find(params[:id])
   end
+  
+  def load_user
+    @user = User.blog_user
+  end
 
 end

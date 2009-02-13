@@ -1,24 +1,27 @@
-  <div id="topnav">
-    <div class="nav">
-      <a herf="/about">About</a>
-    </div>
-    <h1>Blog Title</h1>
-  </div>
-  <div class="img">
-    <%= image_tag @photo.asset.url %>
-  </div>
+<%- previous_photo  = @photo.previous -%>
+<%- following_photo = @photo.following -%>
+<div id="topnav">
   <div class="nav">
-    <a href="Previous">Previous</a> |
-    <a href="Next">Next</a>
+    <a herf="/about">About</a>
   </div>
-  <div class="words">
-    <h2>
-      <%= @photo.title %>
-      <span class="date"><%= @photo.created_at.to_s(:clean) -%></span>
-    </h2>
-    <%= simple_format(@photo.body) %>
-  </div>
+  <h1><%= @user.title -%></h1>
+</div>
+<div class="img">
+  <%= link_to(image_tag(@photo.asset.url), photo_path(@photo.following(circular=true))) %>
+</div>
+<div class="nav">
+  <%= link_to("Previous", photo_path(previous_photo)) if previous_photo -%>
+  <%= " | " if previous_photo && following_photo -%>
+  <%= link_to("Next", photo_path(following_photo)) if following_photo %>
+</div>
+<div class="words">
+  <h2>
+    <%= @photo.title %>
+    <span class="date"><%= @photo.created_at.to_s(:clean) -%></span>
+  </h2>
+  <%= simple_format(@photo.body) %>
+</div>
 
-  <div id="footer">
-    Copyright 2009 Shawn Liu | Powered by Pharm
-  </div>
+<div id="footer">
+  <%= @user.footnotes -%> | Powered by Pharm
+</div>

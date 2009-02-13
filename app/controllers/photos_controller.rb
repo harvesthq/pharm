@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  before_filter :load_user
   before_filter :load_photo, :only => :show
 
   def home

@@ -6,13 +6,26 @@ class Photo < ActiveRecord::Base
     :convert_options => { :thumb => "-strip" },
     :styles          => { :thumb => "150>"}
 
+  named_scope :previous, lambda { |created_at| {:conditions => ['created_at < ?', created_at], :order => 'created_at DESC', :limit => 1} }
+  named_scope :following, lambda { |created_at| {:conditions => ['created_at > ?', created_at], :order => 'created_at ASC', :limit => 1} }
   named_scope :limited, lambda { |num| {:limit => num} }
-  named_scope :ordered, lambda { |*order| { :order => order.flatten.first || 'created_at DESC' } }
+  named_scope :ordered, lambda { |*order| {:order => order.flatten.first || 'created_at DESC'} }
 
   validates_attachment_presence :asset
   validates_attachment_size :asset, :less_than => 10.megabytes
   validates_attachment_content_type :asset, :content_type => ['image/jpeg', 'image/pjpeg', 'image/gif', 'image/png', 'image/x-png', 'image/jpg']
 
   attr_accessible :title, :body, :asset
+  
+  def previous
+    @previous ||= Photo.previous(self.created_at).first
+  end
+  
+  def following(circular=false)
+    return @following if @following
+    @following ||= Photo.following(self.created_at).first
+    return @following if @following || !circular
+    Photo.find(:first)
+  end
 
 end
