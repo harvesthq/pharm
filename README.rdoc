@@ -13,16 +13,34 @@ environment.rb:
 
 = Dreamhost Installation
 
-* start a domain (or fully hosted subdomain) current/public
-* create MySQL DB
+* Get your domain, or fully-hosted subdomain ready at DH:
+  - Click Ruby on Rails Passenger
+  - Make sure your web directory reads for example:
+    /home/username/snapped.bjhess.com/current/public/
+* Create MySQL DB
   - pharm_production
-* setup deploy.rb
-* cold deploy
-* shared area yml file setup (cap task at least for admin?) (remember host name in database.yml)
-* shared area uploads directory
-* full deploy with migrations
+  - note user/pass for the DB
+* Copy deploy.rb.example to deploy.rb
+  - Change DH_USERNAME to your Dreamhost username
+  - Change DH_FTP_SERVER to your Dreamhost FTP address (mine's bazooka.dreamhost.com)
+  - Change DH_SITE_URL to your domain name (mine's snapped.bjhess.com)
+* SSH to DH, /home/username/domain_name
+  - rm -rf current
+  - mkdir -p shared/uploads
+  - mkdir -p shared/config
+  - Using the app's config/admin.yml.example, setup DH shared/config/admin.yml
+  - Using the app's config/database.yml.example, setup DH shared/config/database.yml
+* Back on your local machine
+  - rake deploy:setup
+  - rake deploy:migrations
+    o If this doesn't work for you, change:
+        set :deploy_via, :remote_cache
+      In deploy.rb to:
+        set :deploy_via, :copy
+      It'll be slow, but at least it should work.
 
-(Can we make a simple drag and drop FTP deploy?)
+TODO: Instructions for remote cache deploy working
+TODO: Can we make a simple drag and drop FTP deploy?
 
 = Credits
 
