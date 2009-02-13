@@ -1,7 +1,7 @@
 class CreatePhotos < ActiveRecord::Migration
   def self.up
     create_table :photos do |t|
-      t.column :title, :string, :null => false
+      t.string :title, :body
       t.column :asset_file_name, :string, :null => false
       t.column :asset_content_type, :string, :null => false
       t.column :asset_file_size, :integer, :null => false
