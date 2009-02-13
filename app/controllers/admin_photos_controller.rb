@@ -1,9 +1,7 @@
-class AdminPhotosController < ApplicationController
+class AdminPhotosController < AdminController
   before_filter :authenticate
   before_filter :load_photo, :only => [:edit, :update, :destroy]
 
-  layout 'admin'
-  
   def index
     @photos = Photo.ordered
   end

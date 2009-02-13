@@ -1,4 +1,4 @@
-class AdminUsersController < ApplicationController
+class AdminUsersController < AdminController
   def edit
     @user = User.blog_user
   end
