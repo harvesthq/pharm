@@ -6,6 +6,8 @@ class Photo < ActiveRecord::Base
     :convert_options => { :thumb => "-strip" },
     :styles          => { :thumb => "150>"}
 
+  named_scope :ordered, lambda { |*order| { :order => order.flatten.first || 'created_at DESC' } }
+
   validates_attachment_presence :asset
   validates_attachment_size :asset, :less_than => 10.megabytes
   validates_attachment_content_type :asset, :content_type => ['image/jpeg', 'image/pjpeg', 'image/gif', 'image/png', 'image/x-png', 'image/jpg']

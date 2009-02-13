@@ -1,0 +1,18 @@
+<tr>
+  <td class="thumbnail">
+    <%= image_tag photo.asset.url(:thumb) %>
+  </td>
+  <td class="body_info">
+    <div class="date_title">
+      <%= photo.created_at.to_s(:clean) -%> -
+      <%= photo.title %>
+    </div>
+    <div class="body">
+      <%= truncate(photo.body, :length => 100) %>
+    </div>
+  </td>
+  <td class="actions">
+    <a href="/">Edit</a>
+    <a href="/">Delete</a>
+  </td>
+</tr>

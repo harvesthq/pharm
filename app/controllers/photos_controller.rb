@@ -1,4 +1,8 @@
 class PhotosController < ApplicationController
+
+  def index
+    @photos = Photo.ordered
+  end
   
   def show
     @photo = Photo.find(params[:id])
