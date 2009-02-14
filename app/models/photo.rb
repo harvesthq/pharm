@@ -9,7 +9,7 @@ class Photo < ActiveRecord::Base
     :path            => ":rails_root/public/uploads/:attachment/:id/:style/:basename.:extension",
     :url             => "/uploads/:attachment/:id/:style/:basename.:extension",
     :default_url     => "/images/:attachment/missing_:style.gif",
-    :convert_options => { :thumb => "-strip -crop 90x80^" },
+    :convert_options => { :thumb => "-strip" },
     :styles          => 
       { :thumb  => "90x80^",
         :small  => "#{PHOTO_SIZES[:small]}>",
