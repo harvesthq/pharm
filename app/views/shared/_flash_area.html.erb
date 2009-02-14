@@ -1,0 +1,9 @@
+<% if flash[:error] -%>
+   <div class='flash warning' id='flash-error'><%= flash[:error] -%></div>
+<% end -%>
+<% if flash[:warning] -%>
+   <div class='flash warning' id='flash-warning'><%= flash[:warning] -%></div>
+<% end -%>
+<% if flash[:notice] -%>
+  <div class='flash success' id='flash-message'><%= flash[:notice] -%></div>
+<% end -%>

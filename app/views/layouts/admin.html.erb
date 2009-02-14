@@ -21,6 +21,8 @@
     </ul>
     <h1><%= link_to("Pharm", admin_path) -%></h1>
   </div>
+  <%= render :partial => "shared/flash_area" %>
+
   <%= yield %>
 </div>
 

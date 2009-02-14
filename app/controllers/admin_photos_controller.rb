@@ -11,6 +11,7 @@ class AdminPhotosController < AdminController
   def create
     photo = Photo.create(params[:photo])
     
+    flash[:notice] = "Photo created"
     redirect_to admin_path
   end
   
@@ -18,6 +19,8 @@ class AdminPhotosController < AdminController
   
   def update
     @photo.update_attributes(params[:photo])
+
+    flash[:notice] = "Photo updated"
     redirect_to admin_path
   end
   
