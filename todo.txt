@@ -1,3 +1,6 @@
-o auth
-o update action  
+o Resize thumbnails
+  - If landscape, max at 90px
+  - If portrait, max at 80px
+o Display size options 600, 800, 990 (double check Big Picture)
+o About link. AJAX and display text.
 o Look through additions - what should go to Template?
