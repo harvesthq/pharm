@@ -16,7 +16,7 @@
       </tr>
       <tr>
         <td class="label"><%= f.label :photo_width, "Photo Width" -%></td>
-        <td class="field"><%= f.text_field :photo_width, :class => 'short' -%> pixels <span class="helper">(we recommend 800px)</td>
+        <td class="field"><%= f.select :photo_width, options_for_photo_width_select -%> pixels <span class="helper">(we recommend 800px)</td>
       </tr>
       <tr>
         <td class="label top"><%= f.label :about, "About / Info" -%></td>

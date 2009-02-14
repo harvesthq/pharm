@@ -13,7 +13,7 @@
 
 <body class="<%= @user.layout -%>">
 
-<div id="container" style="width: 800px">
+<div id="container" style="width: <%= Photo::PHOTO_SIZES[@user.photo_width.to_sym] -%>px">
   <%= yield %>
 </div>
 

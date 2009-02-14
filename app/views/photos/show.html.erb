@@ -7,7 +7,7 @@
   <h1><%= @user.title -%></h1>
 </div>
 <div class="img">
-  <%= link_to(image_tag(@photo.asset.url), photo_path(@photo.previous(circular=true))) %>
+  <%= link_to(image_tag(@photo.asset.url(@user.photo_width)), photo_path(@photo.previous(circular=true))) %>
 </div>
 <div class="nav">
   <%= link_to("Previous", photo_path(previous_photo)) if previous_photo -%>

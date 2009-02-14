@@ -1,10 +1,20 @@
 class Photo < ActiveRecord::Base
+  PHOTO_SIZES = {
+    :small  => '600',
+    :medium => '800',
+    :large  => '990'
+  }
+  
   has_attached_file :asset, 
     :path            => ":rails_root/public/uploads/:attachment/:id/:style/:basename.:extension",
     :url             => "/uploads/:attachment/:id/:style/:basename.:extension",
     :default_url     => "/images/:attachment/missing_:style.gif",
     :convert_options => { :thumb => "-strip" },
-    :styles          => { :thumb => "150>"}
+    :styles          => 
+      { :thumb  => "150>",
+        :small  => "#{PHOTO_SIZES[:small]}>",
+        :medium => "#{PHOTO_SIZES[:medium]}>",
+        :large  => "#{PHOTO_SIZES[:large]}>"}
 
   named_scope :previous, lambda { |created_at| {:conditions => ['created_at < ?', created_at], :order => 'created_at DESC', :limit => 1} }
   named_scope :following, lambda { |created_at| {:conditions => ['created_at > ?', created_at], :order => 'created_at ASC', :limit => 1} }
