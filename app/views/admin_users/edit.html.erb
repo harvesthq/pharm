@@ -11,6 +11,10 @@
         <td class="field"><%= f.text_field :name -%></td>
       </tr>
       <tr>
+        <td class="label"><%= f.label :layout -%></td>
+        <td class="field"><%= f.select :layout, ['white', 'black'] -%></td>
+      </tr>
+      <tr>
         <td class="label"><%= f.label :photo_width, "Photo Width" -%></td>
         <td class="field"><%= f.text_field :photo_width, :class => 'short' -%> pixels <span class="helper">(we recommend 800px)</td>
       </tr>
@@ -24,7 +28,10 @@
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td class="buttons"><%= f.submit "Save Settings" -%></td>
+        <td class="buttons">
+          <%= f.submit "Save Settings" %>
+          <%= link_to("Cancel", admin_path) %>
+        </td>
       </tr>
     </table>
   </div>

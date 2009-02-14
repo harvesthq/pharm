@@ -11,7 +11,7 @@
   <%= yield :page_scripts %>
 </head>
 
-<body class="black">
+<body class="<%= @user.layout -%>">
 
 <div id="container" style="width: 800px">
   <%= yield %>

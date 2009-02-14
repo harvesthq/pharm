@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :title, :about, :photo_width, :footnotes
+  attr_accessible :name, :title, :about, :layout, :photo_width, :footnotes
   
   class << self
     def blog_user
