@@ -11,7 +11,8 @@ class Photo < ActiveRecord::Base
     :default_url     => "/images/:attachment/missing_:style.gif",
     :convert_options => { :thumb => "-strip" },
     :styles          => 
-      { :thumb  => "90x80^",
+      # { :thumb  => "90x80^",
+      { :thumb  => "120>",
         :small  => "#{PHOTO_SIZES[:small]}>",
         :medium => "#{PHOTO_SIZES[:medium]}>",
         :large  => "#{PHOTO_SIZES[:large]}>"}
