@@ -3,4 +3,5 @@ o Resize thumbnails
   - If portrait, max at 80px
 o Display size options 600, 800, 990 (double check Big Picture)
 o About link. AJAX and display text.
+o Paging on /admin screen.
 o Look through additions - what should go to Template?
