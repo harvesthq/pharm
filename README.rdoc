@@ -1,6 +1,6 @@
 = Pharm
 
-The little engine that could.
+We at Iridesco could never find that "just right" photo-blogging. We want minimal configuration, minimal page noise, and big, beautiful pictures. And so, we decided to create an open source blogging engine to do just that. Heck, just install Pharm on Dreamhost and you'll be just fine to start with.
 
 = Installation
 
