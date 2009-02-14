@@ -1,6 +1,6 @@
 <div id="upload">
   <% unless @photo.new_record? %>
-    <div class="photo_full"><%= image_tag(@photo.asset.url, :width=>"600") unless @photo.new_record? %></div>
+    <div class="photo_full"><%= image_tag(@photo.asset.url(:small)) unless @photo.new_record? %></div>
   <% end %>
   <div class="upload_file">
     <label><%= "#{@photo.new_record? ? 'Upload' : 'Replace'} photo" %></label>
