@@ -2,10 +2,11 @@ o Resize thumbnails
   - If landscape, max at 90px
   - If portrait, max at 80px
 o Page caching
-  - Stale checks
-  - Photo show screens
-  - Decache when photo updated
-  - Decache all when settings updated
+  x Stale checks
+  x Photo show screens
+  x Decache when photo updated
+  x Decache all when settings updated
+  - It looks to me like we're not seeing client-side caching of photos. WTF?
 o About link. AJAX and display text.
 o Paging on /admin screen.
 o Look through additions - what should go to Template?
