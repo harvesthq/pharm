@@ -2,6 +2,8 @@ class AdminPhotosController < AdminController
   before_filter :authenticate
   before_filter :load_photo, :only => [:edit, :update, :destroy]
 
+  cache_sweeper :photo_sweeper, :only => [:create, :update, :destroy]
+  
   def index
     @photos = Photo.ordered
   end

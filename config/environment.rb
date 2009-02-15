@@ -37,6 +37,8 @@ Rails::Initializer.run do |config|
     config.gem 'assert2'
     config.gem 'iridesco-time-warp', :lib => 'time_warp', :source => "http://gems.github.com"
   end
+  
+  config.load_paths += %W( #{RAILS_ROOT}/app/sweepers )
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.

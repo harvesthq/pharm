@@ -1,4 +1,6 @@
 class AdminUsersController < AdminController
+  after_filter :expire_pages, :only => [:create, :update]
+
   def edit
     @user = User.blog_user
   end
@@ -16,5 +18,14 @@ class AdminUsersController < AdminController
 
     flash[:notice] = "Settings updated"
     redirect_to admin_path
+  end
+  
+private
+
+  def expire_pages
+    expire_page('/index.html')
+    Photo.find(:all, :select => 'id').map(&:id).each do |_id|
+      expire_page(:controller => 'photos', :action => 'show', :id => _id)
+    end
   end
 end
