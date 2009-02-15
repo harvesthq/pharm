@@ -2,6 +2,7 @@ o Resize thumbnails
   - If landscape, max at 90px
   - If portrait, max at 80px
 o Page caching
+  - Stale checks
   - Photo show screens
   - Decache when photo updated
   - Decache all when settings updated
