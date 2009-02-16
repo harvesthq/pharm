@@ -10,6 +10,7 @@ o Page caching
   - Creating photo, decache first-ever photo so circular rotation on photo click works
   - It looks to me like we're not seeing client-side caching of photos. WTF?
 o About link. AJAX and display text.
+o Move bugmail settings to admin.yml file.
 o RSS feeds
 o API?
 o Paging on /admin screen.
