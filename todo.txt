@@ -1,6 +1,3 @@
-o Resize thumbnails
-  - If landscape, max at 90px
-  - If portrait, max at 80px
 o Page caching
   x Stale checks
   x Photo show screens
@@ -17,5 +14,6 @@ o Move bugmail settings to admin.yml file.
 o RSS feeds
 o API?
 o Paging on /admin screen.
+o Consider how to make this more easily deployable.
 o Timezone aware front-end and backend.
 o Look through additions - what should go to Template?
