@@ -9,5 +9,6 @@ config/admin.yml
 db/schema.rb
 log/*.log
 public/stylesheets/*.css
+public/javascripts/all.js
 public/uploads
 public/cache
