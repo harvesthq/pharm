@@ -1,14 +1,4 @@
-o Page caching
-  x Stale checks
-  x Photo show screens
-  x Decache when photo updated
-  x Decache all when settings updated
-  - Creating photo, decache previous photo so next button works
-  - Creating photo, decache first-ever photo so circular rotation on photo click works
-  - Decache all upon deploy?
-  - It looks to me like we're not seeing client-side caching of photo assets. WTF?
 o Pretty ID's in URL
-o Increase amount of photo body showing in the admin index screen
 o About link. AJAX and display text.
 o Move bugmail settings to admin.yml file.
 o RSS feeds
