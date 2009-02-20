@@ -2,7 +2,7 @@ class PhotoSweeper < ActionController::Caching::Sweeper
   observe Photo
 
   def before_create(photo)
-    ordered.limited(2).selection(:id).each do |photo|
+    Photo.ordered.limited(2).selection(:id).each do |photo|
       expire_page(:controller => 'photos', :action => 'show', :id => photo)
     end
   end
