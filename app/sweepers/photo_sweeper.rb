@@ -1,6 +1,17 @@
 class PhotoSweeper < ActionController::Caching::Sweeper
   observe Photo
 
+  def before_create(photo)
+    Photo.ordered.limited(2).selection(:id).each do |photo|
+      expire_page(:controller => 'photos', :action => 'show', :id => photo)
+    end
+  end
+
+  def after_create(photo)
+    expire_page('/index.html')
+    expire_page(:controller => 'photos', :action => 'show', :id => Photo.oldest_photo_id)
+  end
+
   def after_save(photo)
     expire_cache_for(photo)
   end
@@ -13,7 +24,6 @@ class PhotoSweeper < ActionController::Caching::Sweeper
 private
 
   def expire_cache_for(photo)
-    expire_page('/index.html')  # Really only need this on create, destroy, and edit of most recent photo
     expire_page(:controller => 'photos', :action => 'show', :id => photo.id)
   end
   
