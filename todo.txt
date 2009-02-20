@@ -1,6 +1,5 @@
 o Pretty ID's in URL
 o About link. AJAX and display text.
-o Move bugmail settings to admin.yml file.
 o RSS feeds
 o API?
 o Paging on /admin screen.
