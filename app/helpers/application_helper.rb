@@ -2,7 +2,7 @@
 module ApplicationHelper
 
   def title(page_title)
-    content_for(:title) { page_title }
+    content_for(:title) { "#{page_title} " + ( Pharm::Config.options['main_title'] || " : Pharm Photoblogging Engine") }
   end
 
   def head(text)
