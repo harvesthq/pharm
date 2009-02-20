@@ -1,17 +1,25 @@
-= Pharm
+### Pharm
 
 We at Iridesco could never find that "just right" photo-blogging. We want minimal configuration, minimal page noise, and big, beautiful pictures. And so, we decided to create an open source blogging engine to do just that. Heck, just install Pharm on Dreamhost and you'll be just fine to start with.
 
-= Installation
+### Installation
 
-This is a fully-formed Rails application. Thus you must know how to install Rails applications on your host.  Update the following files appropriately:
+This is a fully-formed Rails application. Thus you must know how to install Rails applications on your host.
+
+Configuration files to update on the host:
+
+* shared/config/database.yml
+* shared/config/admin.yml
+* shared/config/options.yml
+
+(admin: user/pass. options: main\_title, exception notification.)
 
 environment.rb:
 
   ExceptionNotifier.sender_address       = %("Pharm bug" <info@iridesco.com>)
   ExceptionNotifier.exception_recipients = %w(shawn@iridesco.com barry@iridesco.com)
 
-= Dreamhost Installation
+### Dreamhost Installation
 
 * Get your domain, or fully-hosted subdomain ready at DH:
   - Click Ruby on Rails Passenger
@@ -31,6 +39,7 @@ environment.rb:
   - mkdir -p shared/config
   - Using the app's config/admin.yml.example, setup DH shared/config/admin.yml
   - Using the app's config/database.yml.example, setup DH shared/config/database.yml
+  - Using the app's config/options.yml.example, setup DH shared/config/options.yml
     (don't forget to specify host on Dreamhost)
 * TODO: Something about setting up public key from DH on GitHub account
 * Back on your local machine
@@ -46,10 +55,10 @@ environment.rb:
 TODO: Instructions for remote cache deploy working
 TODO: Can we make a simple drag and drop FTP deploy?
 
-= Credits
+### Credits
 
-Pharm is maintained by {Barry Hess}[mailto:barry@iridesco.com] and {Shawn Liu}[mailto:shawn@iridesco.com], and is funded by Iridesco[http://iridesco.com].
+Pharm is maintained by [Barry Hess](mailto:barry@iridesco.com) and [Shawn Liu](mailto:shawn@iridesco.com), and is funded by [Iridesco](http://iridesco.com).
 
-= License
+### License
 
 Copyright © 2009 Barry Hess, Shawn Liu, Iridesco. It is free software, and may be redistributed under the terms specified in the MIT-LICENSE file.
