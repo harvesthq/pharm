@@ -9,7 +9,7 @@ class PhotoSweeper < ActionController::Caching::Sweeper
 
   def after_create(photo)
     expire_page('/index.html')
-    ordered('created_at ASC').limited(1).selection(:id).each do |photo|
+    Photo.ordered('created_at ASC').limited(1).selection(:id).each do |photo|
       expire_page(:controller => 'photos', :action => 'show', :id => photo)
     end
   end
