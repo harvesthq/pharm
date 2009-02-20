@@ -88,7 +88,7 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 end
 
-ExceptionNotifier.sender_address       = %("Pharm bug" <barry@bjhess.com>)
-ExceptionNotifier.exception_recipients = %w(shawn@iridesco.com barry@iridesco.com)
+ExceptionNotifier.sender_address       = Pharm::Config.options['exception_sender']
+ExceptionNotifier.exception_recipients = Pharm::Config.options['exception_recipients']
 
 ENV["RAILS_ENV"] ||= "test"

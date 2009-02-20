@@ -1,1 +1,3 @@
-main_title: " : Pharm Photoblogging Engine"
+main_title:           " : Pharm Photoblogging Engine"
+exception_sender:     %("Pharm bug" <your_email@your_domain.com>)
+exception_recipients: %w(your_email@your_domain2.com other_email@other_domain.com)
