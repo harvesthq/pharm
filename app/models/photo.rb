@@ -27,6 +27,8 @@ class Photo < ActiveRecord::Base
   validates_attachment_size :asset, :less_than => 10.megabytes
   validates_attachment_content_type :asset, :content_type => ['image/jpeg', 'image/pjpeg', 'image/gif', 'image/png', 'image/x-png', 'image/jpg']
 
+  xss_terminate :except => [:body, :body_html]  # These will be protected on the front-end via sanitize
+
   attr_accessible :title, :body, :asset
   
   def previous(circular=false)
@@ -38,6 +40,15 @@ class Photo < ActiveRecord::Base
   
   def following
     @following ||= Photo.following(self.created_at).first
+  end
+  
+  def body
+    read_attribute(:body) || ""
+  end
+  
+  def body=(_body)
+    self.write_attribute(:body, _body)
+    self.body_html = RedCloth.new(_body).to_html
   end
 
 end

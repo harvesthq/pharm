@@ -19,7 +19,7 @@
     <%= @photo.title %>
     <span class="date"><%= @photo.created_at.to_s(:clean) -%></span>
   </h2>
-  <%= simple_format(@photo.body) %>
+  <%= sanitize(@photo.body_html_without_html_escaping) %>
 </div>
 
 <div id="footer">
