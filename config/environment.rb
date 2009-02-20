@@ -71,6 +71,8 @@ Rails::Initializer.run do |config|
     :secret      => '9909166aa32e3b5d85b5e7eafbd5b6c58a899738fb0c54104c013740984f987627440e182abcbae6419438a51baffc168165b9e68206ea4cb48d743fafbbcdb3'
   }
 
+  config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
+
   # Use the database for sessions instead of the cookie-based default,
   # which shouldn't be used to store highly confidential information
   # (create the session table with "rake db:sessions:create")
