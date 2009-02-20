@@ -29,12 +29,6 @@ class Photo < ActiveRecord::Base
 
   attr_accessible :title, :body, :asset
   
-  class << self
-    def oldest_photo_id
-      ordered('created_at ASC').limited(1).selection(:id)[0].id
-    end
-  end
-  
   def previous(circular=false)
     return @previous if @previous
     @previous ||= Photo.previous(self.created_at).first
