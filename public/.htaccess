@@ -2,3 +2,8 @@
     ExpiresActive On
     ExpiresDefault "access plus 1 year"
 </FilesMatch>
+
+RewriteEngine On
+
+RewriteRule ^/$ cache/index.html [QSA]
+RewriteRule ^([^.]+)$ cache/$1.html [QSA]
