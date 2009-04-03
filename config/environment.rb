@@ -83,7 +83,10 @@ Rails::Initializer.run do |config|
     :secret      => session_secret
   }
 
-  config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
+  # BH - To run on Dreamhost, under Passenger, mod_rewrite is not on by default. This makes
+  # rewriting to an alternative cache directory location impossible. At least this is what
+  # I have gathered in my discussions with Dreamhost.
+  # config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
 
   # Use the database for sessions instead of the cookie-based default,
   # which shouldn't be used to store highly confidential information
