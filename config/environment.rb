@@ -66,9 +66,21 @@ Rails::Initializer.run do |config|
   # If you change this key, all old sessions will become invalid!
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
+  session_secret =
+    if RAILS_ENV == 'production'
+      session_config_file = File.expand_path("#{RAILS_ROOT}/config/session.secret")
+      unless File.exists?(session_config_file)
+        fail "No config/session.secret found. Please create one with 'rake --silent secret > /path/to/app/shared/config/session.secret'"
+      end
+      File.open(session_config_file).read.strip
+    else
+      #the secret for development & test
+      'a21d1958f9be9c101816d0b297eac9b5b43a8d5a25c14dafe0000247ade18fa1ef6f97459815743f3b43ef2bf7558d86380ef1e1a5434b2ffff48e96568341a5'
+    end
+
   config.action_controller.session = {
-    :session_key => '_pharm_session',
-    :secret      => '9909166aa32e3b5d85b5e7eafbd5b6c58a899738fb0c54104c013740984f987627440e182abcbae6419438a51baffc168165b9e68206ea4cb48d743fafbbcdb3'
+    :session_key => "_photo_session#{'test' if RAILS_ENV == 'test'}",
+    :secret      => session_secret
   }
 
   config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"

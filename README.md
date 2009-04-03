@@ -11,8 +11,13 @@ Configuration files to update on the host:
 * shared/config/database.yml
 * shared/config/admin.yml
 * shared/config/options.yml
+* shared/config/session.secret
 
 (admin: user/pass. options: main\_title, exception notification.)
+
+To generate `session.secret`, visit your app current directory on your server and run:
+
+  rake --silent secret > /path/to/app/shared/config/session.secret
 
 environment.rb:
 
@@ -55,6 +60,54 @@ environment.rb:
 TODO: Instructions for remote cache deploy working
 TODO: Can we make a simple drag and drop FTP deploy?
 
+### Sample capistrano `deploy.rb`
+
+  default_run_options[:pty] = true  # Force password prompt from git
+
+  set :user, "bjhess"
+  set :domain, "something.dreamhost.com"
+  set :application, "snapped.bjhess.com"
+  
+  # should be your fork
+  set :repository, "git@github.com:iridesco/pharm.git"
+
+  set :deploy_to, "/home/#{user}/#{application}"
+  set :deploy_via, :remote_cache
+  set :scm, 'git'
+  set :branch, 'origin/master'
+  set :git_shallow_clone, 1
+  set :scm_verbose, true
+  set :use_sudo, false
+  set :keep_releases, '10'
+
+  server domain, :app, :web
+  role :db, domain, :primary => true
+
+  # =============================================================================
+  # Custom tasks
+  # =============================================================================
+
+  namespace :deploy do
+      desc "Tasks to complete after code update"
+    task :after_update_code do
+      configs_for = %w{database admin options}
+      commands_todo = configs_for.map do |cfg|
+        "ln -nfs #{deploy_to}/#{shared_dir}/config/#{cfg}.yml #{current_release}/config/#{cfg}.yml"
+      end
+      commands_todo << "ln -nfs #{deploy_to}/#{shared_dir}/config/session.secret #{current_release}/config/session.secret"
+      commands_todo << "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
+      run commands_todo.join(" && ")
+    end
+
+    desc "Restart Application"
+    task :restart do
+      run "touch #{current_path}/tmp/restart.txt"
+    end
+  end
+
+  after "deploy", "deploy:cleanup"
+  after "deploy:migrations", "deploy:cleanup"
+  
 ### Credits
 
 Pharm is maintained by [Barry Hess](mailto:barry@iridesco.com) and [Shawn Liu](mailto:shawn@iridesco.com), and is funded by [Iridesco](http://iridesco.com).
