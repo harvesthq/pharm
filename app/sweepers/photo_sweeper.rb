@@ -15,6 +15,7 @@ class PhotoSweeper < ActionController::Caching::Sweeper
   end
 
   def after_save(photo)
+    expire_page('/index.html') if photo.id == Photo.ordered.limited(1).selection(:id).first.id
     expire_cache_for(photo)
   end
   
