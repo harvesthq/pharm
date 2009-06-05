@@ -114,4 +114,4 @@ Pharm is maintained by [Barry Hess](mailto:barry@iridesco.com) and [Shawn Liu](m
 
 ### License
 
-Copyright © 2009 Barry Hess, Shawn Liu, Iridesco. It is free software, and may be redistributed under the terms specified in the MIT-LICENSE file.
+Copyright © 2009 [Barry Hess](http://bjhess.com), [Shawn Liu](http://jiayo.net/), [Iridesco](http://iridesco.com). It is free software, and may be redistributed under the terms specified in the MIT-LICENSE file.
